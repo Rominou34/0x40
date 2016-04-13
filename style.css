@@ -1,0 +1,65 @@
+html, body {
+  width: 100%;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body, p, div, article, h1, h2, h3, h4, h5, h6, form {
+  margin: 0px;
+  padding: 0px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#visuals {
+  width: 100%;
+  height: 600px;
+}
+
+.big-beat {
+  font-size: 150%;
+}
+
+#img {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.75;
+}
+
+#img img {
+  max-height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+
+}
+
+.anim-color-fadeout {
+  animation: color-fadeout 0.25s 0s ease-in-out;
+  animation-fill-mode: both;
+}
+
+@keyframes color-fadeout {
+	0% {
+		background-color: red;
+	}
+	100% {
+		background-color: inherit;
+	}
+}
+
+@-webkit-keyframes color-fadeout {
+	0% {
+		background-color: red;
+	}
+	100% {
+		background-color: inherit;
+	}
+}
