@@ -1,0 +1,89 @@
+/*
+*** INITIALIZATION ***
+*/
+html, body {
+  width: 100%;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Press Start 2P', monospace;
+}
+
+html, body, p, div, article, h1, h2, h3, h4, h5, h6, form {
+  margin: 0px;
+  padding: 0px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*
+* Where we display the waifus
+*/
+#waifu {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.75;
+}
+
+/*
+* The beats at the top of the screen
+*/
+
+#beat {
+  width: 100%;
+  height: 48px;
+  position: fixed;
+  display: flex;
+  z-index: 2;
+  top: 0;
+}
+
+#beat span {
+  display: inline-block;
+  line-height: 48px;
+  height: 48px;
+  vertical-align: top;
+}
+
+#beat span:not(.big-beat) {
+  width: calc(49% - 20px);
+  font-size: 16px;
+  flex: 1 0;
+}
+
+#beat span:first-child {
+  text-align: right;
+}
+
+.big-beat {
+  font-size: 24px;
+  line-height: 48px;
+  width: 40px;
+  text-align: center;
+  flex: 0 0 40px;
+}
+
+/*
+* The loading screen
+*/
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  font-size: 64px;
+  text-align: center;
+  line-height: 100vh;
+}

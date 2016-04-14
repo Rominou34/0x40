@@ -42,15 +42,65 @@ function displayBeat() {
 
 function playBeatAnimation(beat_char) {
   if(beat_char == 'x') {
-    waifuDiv.innerHTML = "";
-    var randomImg = Math.round(Math.random()*(img.length-1));
-    //imgDiv.appendChild(img[randomImg]);
-    waifuDiv.style.backgroundImage = "url('"+img[randomImg].src+"')";
+    //waifuDiv.innerHTML = "";
+    changeImg();
+    changeColor();
+    horBlur();
   }
   if(beat_char == 'o') {
-    var randomColor = Math.round(Math.random()*(colors.length-1));
-    //visualsDiv.style.backgroundColor = colors[randomColor];
-    var h = document.querySelector("html");
-    h.style.backgroundColor = colors[randomColor];
+    changeImg();
+    changeColor();
+    verBlur();
   }
+}
+
+/*
+* ANIMATIONS
+*/
+
+function changeImg() {
+  var randomImg = currentImg;
+  while(randomImg == currentImg) {
+    randomImg = Math.round(Math.random()*(img.length-1));
+  }
+  currentImg = randomImg;
+  waifuDiv.style.backgroundImage = "url('"+img[randomImg].src+"')";
+}
+
+function changeColor() {
+  var randomColor = currentColor;
+  while(randomColor == currentColor) {
+    randomColor = Math.round(Math.random()*(colors.length-1));
+  }
+  currentColor = randomColor;
+  var h = document.querySelector("html");
+  h.style.backgroundColor = colors[randomColor];
+}
+
+function horBlur() {
+  var dice = Math.random() > 0.5;
+  var anim;
+  if(dice) {
+    anim = 'anim-blur-left';
+  } else {
+    anim = 'anim-blur-right';
+  }
+  waifu.classList.add(anim);
+  setTimeout(function() {
+    waifu.classList.remove(anim);
+  }, 200);
+}
+
+function verBlur() {
+  var dice = Math.random() > 0.5;
+  var anim;
+  if(dice) {
+    anim = 'anim-blur-top';
+  } else {
+    anim = 'anim-blur-bottom';
+  }
+  waifu.classList.add(anim);
+  setTimeout(function() {
+    waifu.classList.remove(anim);
+  }, 200);
 }

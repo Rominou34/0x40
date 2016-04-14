@@ -3,7 +3,7 @@ for(var m in music) {
   var addAudio = new Audio(music[m].url);
   addAudio.autoplay=false;
   /************************/
-  addAudio.volume = 0.1;
+  //addAudio.volume = 0.1;
   /************************/
   audio.push(addAudio);
 }
@@ -25,14 +25,16 @@ for(var j in audio) {
 }*/
 
 function play(idToPlay) {
-  if(currentAudio) {
-    currentAudio.pause();
+  if(currentMusic != idToPlay) {
+    if(currentAudio) {
+      currentAudio.pause();
+    }
+    currentMusic = idToPlay;
+    currentAudio = audio[idToPlay];
+    currentAudio.currentTime = 0;
+    playBeat(idToPlay);
+    currentAudio.play();
   }
-
-  currentAudio = audio[idToPlay];
-  currentAudio.currentTime = 0;
-  playBeat(idToPlay);
-  currentAudio.play();
 }
 
 function pause() {

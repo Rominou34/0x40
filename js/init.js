@@ -6,29 +6,50 @@
 
 // The musics we will use
 var music = [
-  {'id': 0, 'url': 'http://madoka.ovh/Ante_up.mp3'},
-  {'id': 1, 'url': 'http://azunyan.ovh/fuwa_fuwa_time.mp3'}
+  /*{'id': 0, 'url': 'http://madoka.ovh/Ante_up.mp3'},
+  {'id': 1, 'url': 'http://azunyan.ovh/fuwa_fuwa_time.mp3'},*/
+  {'id': 0, 'url': 'assets/music/Fukkireta.mp3'},
+  {'id': 1, 'url': 'assets/music/NOMA_BP.mp3'},
 ];
 
 // The beatmaps corresponding to each music
 var beatMap = [
-  {'music_id': 0, 'beat': '..x..o..x..o'},
-  {'music_id': 1, 'beat': 'x.o.x.o.x.o.x'}
+  {'music_id': 0, 'beat': 'x.o.x.o.x.o.x.o.'},
+  {'music_id': 1, 'beat': 'x.o.x.o.x.o.x.o.'}
 ];
 
 // The pictures we will use
 var pictures = [
-  {'id': 0, 'url': 'http://rominou34.github.io/Tabinou/img/plane1.jpg'},
-  {'id': 1, 'url': 'http://rominou34.github.io/img/profile_pic.jpg'}
+  /*{'id': 0, 'url': 'http://rominou34.github.io/Tabinou/img/plane1.jpg'},
+  {'id': 1, 'url': 'http://rominou34.github.io/img/profile_pic.jpg'}*/
+  {'id': 0, 'url': 'assets/pics/Agiri.png'},
+  {'id': 1, 'url': 'assets/pics/Ai.png'},
+  {'id': 2, 'url': 'assets/pics/Akarin.png'},
+  {'id': 3, 'url': 'assets/pics/Akatsuki.png'},
+  {'id': 4, 'url': 'assets/pics/Alice.png'},
+  {'id': 5, 'url': 'assets/pics/Astraea.png'},
+  {'id': 6, 'url': 'assets/pics/Asuha.png'},
+  {'id': 7, 'url': 'assets/pics/Asuka.png'},
+  {'id': 8, 'url': 'assets/pics/Ayase.png'},
+  {'id': 9, 'url': 'assets/pics/CC.png'},
+  {'id': 10, 'url': 'assets/pics/Chika.png'},
+  {'id': 11, 'url': 'assets/pics/Chiri.png'},
+  {'id': 12, 'url': 'assets/pics/Chitanda.png'},
+  {'id': 13, 'url': 'assets/pics/Chiyo.png'},
+  {'id': 14, 'url': 'assets/pics/Cirno.png'},
+  {'id': 15, 'url': 'assets/pics/Megumi.png'},
 ];
 
 // The colors we will use
 var colors = [
-  '#457cf7',
-  '#da2ec9',
-  '#49e03b',
-  '#f9a932',
-  '#895ef2'
+  'Aqua',
+  'Chartreuse',
+  'DarkOrchid',
+  'DarkOrange',
+  'DeepPink',
+  'Gold',
+  'GreenYellow',
+  'MediumSpringGreen',
 ]
 
 /********** VARIABLES **********/
@@ -64,6 +85,10 @@ var beat_interval;
 
 // The current beatmap played
 var currentBeat;
+
+var currentImg = -1;
+var currentColor = -1;
+var currentMusic = -1;
 
 // The current beatmap character position
 var beat_pos;

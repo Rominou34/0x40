@@ -21,6 +21,8 @@ function musicLoading() {
   if(mLoad == music.length && imgLoaded == img.length) {
     console.log("Content loaded");
     play(0);
+    changeImg();
+    changeColor();
     clearInterval(loadingInterval);
     loadingDiv.style.opacity = 0;
   }

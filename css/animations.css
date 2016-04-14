@@ -1,0 +1,162 @@
+/************
+* BLUR LEFT *
+************/
+
+.anim-blur-left {
+  animation: blur-left 0.12s 0s linear;
+  animation-fill-mode: both;
+}
+
+@keyframes blur-left {
+	0% {
+		left: -25px;
+    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    filter: blur(4px);
+	}
+	100% {
+		left: 0;
+    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    filter: blur(0);
+	}
+}
+
+@-webkit-keyframes blur-left {
+  0% {
+		left: -25px;
+    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    filter: blur(4px);
+	}
+	100% {
+		left: 0;
+    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    filter: blur(0);
+	}
+}
+
+/************
+* BLUR LEFT *
+************/
+
+.anim-blur-right {
+  animation: blur-right 0.12s 0s linear;
+  animation-fill-mode: both;
+}
+
+@keyframes blur-right {
+	0% {
+		left: 25px;
+    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    filter: blur(4px);
+	}
+	100% {
+		left: 0;
+    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    filter: blur(0);
+	}
+}
+
+@-webkit-keyframes blur-right {
+  0% {
+		left: 25px;
+    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    filter: blur(4px);
+	}
+	100% {
+		left: 0;
+    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    filter: blur(0);
+	}
+}
+
+/***********
+* BLUR TOP *
+***********/
+
+.anim-blur-top {
+  animation: blur-top 0.12s 0s linear;
+  animation-fill-mode: both;
+}
+
+@keyframes blur-top {
+	0% {
+		top: -25px;
+    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    filter: blur(4px);
+	}
+	100% {
+		top: 0;
+    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    filter: blur(0);
+	}
+}
+
+@-webkit-keyframes blur-top {
+  0% {
+		top: -25px;
+    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    filter: blur(4px);
+	}
+	100% {
+		top: 0;
+    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    filter: blur(0);
+	}
+}
+
+/**************
+* BLUR BOTTOM *
+**************/
+
+.anim-blur-bottom {
+  animation: blur-bottom 0.12s 0s linear;
+  animation-fill-mode: both;
+}
+
+@keyframes blur-bottom {
+	0% {
+		top: 25px;
+    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    filter: blur(4px);
+	}
+	100% {
+		top: 0;
+    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    filter: blur(0);
+	}
+}
+
+@-webkit-keyframes blur-bottom {
+  0% {
+		top: 25px;
+    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    filter: blur(4px);
+	}
+	100% {
+		top: 0;
+    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    filter: blur(0);
+	}
+}
+
+.anim-color-fadeout {
+  animation: color-fadeout 0.25s 0s ease-in-out;
+  animation-fill-mode: both;
+}
+
+@keyframes color-fadeout {
+	0% {
+		background-color: red;
+	}
+	100% {
+		background-color: inherit;
+	}
+}
+
+@-webkit-keyframes color-fadeout {
+	0% {
+		background-color: red;
+	}
+	100% {
+		background-color: inherit;
+	}
+}
