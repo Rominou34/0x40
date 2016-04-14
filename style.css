@@ -1,3 +1,6 @@
+/*
+*** INITIALIZATION ***
+*/
 html, body {
   width: 100%;
   min-height: 100%;
@@ -15,30 +18,72 @@ html, body, p, div, article, h1, h2, h3, h4, h5, h6, form {
   box-sizing: border-box;
 }
 
-#visuals {
+/*
+* Where we display the waifus
+*/
+#waifu {
   width: 100%;
-  height: 600px;
-}
-
-.big-beat {
-  font-size: 150%;
-}
-
-#img {
-  width: 100%;
-  height: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  top: 0;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.75;
 }
 
-#img img {
-  max-height: 100%;
-  max-width: 100%;
-  display: block;
-  margin: auto;
+/*
+* The beats at the top of the screen
+*/
 
+#beat {
+  width: 100%;
+  height: 48px;
+  position: fixed;
+  display: flex;
+  z-index: 2;
+  top: 0;
+}
+
+#beat span {
+  display: inline-block;
+  line-height: 48px;
+  height: 48px;
+  vertical-align: top;
+}
+
+#beat span:not(.big-beat) {
+  width: calc(49% - 20px);
+  font-size: 24px;
+  flex: 1 0;
+}
+
+#beat span:first-child {
+  text-align: right;
+}
+
+.big-beat {
+  font-size: 32px;
+  line-height: 48px;
+  width: 40px;
+  text-align: center;
+  flex: 0 0 40px;
+}
+
+/*
+* The loading screen
+*/
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  font-size: 64px;
+  text-align: center;
+  line-height: 100vh;
 }
 
 .anim-color-fadeout {

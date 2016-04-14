@@ -4,7 +4,7 @@ for(var p in pictures) {
   addImg.onload = function() {
     imgLoaded++;
     console.log("Image loaded (" + imgLoaded + "/" + img.length + ")");
-    updateLoading();
+    //updateLoading();
     if(imgLoaded == img.length) {
       console.log("-- All images loaded --");
     }
@@ -32,22 +32,25 @@ function displayBeat() {
   }
   beatRight.innerHTML = strRight;
 
-  beatCenter.innerHTML = beatMap[currentBeat].beat.charAt(beat_pos);
+  if(beatMap[currentBeat].beat.charAt(beat_pos) != '.') {
+    beatCenter.innerHTML = beatMap[currentBeat].beat.charAt(beat_pos);
+  } else {
+    beatCenter.innerHTML = ' ';
+  }
+
 }
 
 function playBeatAnimation(beat_char) {
   if(beat_char == 'x') {
-    imgDiv.innerHTML = "";
+    waifuDiv.innerHTML = "";
     var randomImg = Math.round(Math.random()*(img.length-1));
     //imgDiv.appendChild(img[randomImg]);
-    imgDiv.style.backgroundImage = "url('"+img[randomImg].src+"')";
-    beatDiv.classList.add('anim-color-fadeout');
-    setTimeout(function() {
-      beatDiv.classList.remove('anim-color-fadeout');
-    }, 250);
+    waifuDiv.style.backgroundImage = "url('"+img[randomImg].src+"')";
   }
   if(beat_char == 'o') {
     var randomColor = Math.round(Math.random()*(colors.length-1));
-    visualsDiv.style.backgroundColor = colors[randomColor];
+    //visualsDiv.style.backgroundColor = colors[randomColor];
+    var h = document.querySelector("html");
+    h.style.backgroundColor = colors[randomColor];
   }
 }

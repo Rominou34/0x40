@@ -5,17 +5,6 @@ for(var m in music) {
   /************************/
   addAudio.volume = 0.1;
   /************************/
-  addAudio.onprogress = function() {
-    if(this.networkState == 1) {
-      musicLoaded++;
-      console.log("Music loaded (" + musicLoaded + "/" + music.length + ")");
-      updateLoading();
-      if(musicLoaded == music.length) {
-        console.log("-- All musics loaded --");
-        play(0);
-      }
-    }
-  }
   audio.push(addAudio);
 }
 
@@ -59,10 +48,4 @@ function playBeat(musicId) {
     playBeatAnimation(beatMap[currentBeat].beat.charAt(beat_pos));
     beat_pos = (beat_pos+1)%beatMap[currentBeat].beat.length;
   }, 200);
-}
-
-window.onload = function() {
-  imgDiv = document.getElementById("img");
-  beatDiv = document.getElementById("beat");
-  visualsDiv = document.getElementById("visuals");
 }
