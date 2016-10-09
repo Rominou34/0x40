@@ -41,16 +41,44 @@ function displayBeat() {
 }
 
 function playBeatAnimation(beat_char) {
+  // VERTICAL BLUR
   if(beat_char == 'x') {
+    changeImg();
+    changeColor();
+    verBlur();
+  }
+
+  // HORIZONTAL BLUR
+  if(beat_char == 'o') {
     //waifuDiv.innerHTML = "";
     changeImg();
     changeColor();
     horBlur();
   }
-  if(beat_char == 'o') {
-    changeImg();
+
+  // COLOR ONLY
+  if(beat_char == ':') {
     changeColor();
+  }
+
+  // IMAGE ONLY
+  if(beat_char == '*') {
+    changeImg();
+  }
+
+  // VERTICAL BLUR ONLY
+  if(beat_char == 'X') {
     verBlur();
+  }
+
+  // HORIZONTAL BLUR ONLY
+  if(beat_char == 'O') {
+    horBlur();
+  }
+
+  // BLACKOUT
+  if(beat_char == '+') {
+    blackout();
   }
 }
 
@@ -58,6 +86,7 @@ function playBeatAnimation(beat_char) {
 * ANIMATIONS
 */
 
+// CHANGE IMAGE
 function changeImg() {
   var randomImg = currentImg;
   while(randomImg == currentImg) {
@@ -67,6 +96,7 @@ function changeImg() {
   waifuDiv.style.backgroundImage = "url('"+img[randomImg].src+"')";
 }
 
+// CHANGE COLOR
 function changeColor() {
   var randomColor = currentColor;
   while(randomColor == currentColor) {
@@ -77,6 +107,7 @@ function changeColor() {
   h.style.backgroundColor = colors[randomColor];
 }
 
+// HORIZONTAL BLUR
 function horBlur() {
   var dice = Math.random() > 0.5;
   var anim;
@@ -91,6 +122,7 @@ function horBlur() {
   }, 200);
 }
 
+// VERTICAL BLUR
 function verBlur() {
   var dice = Math.random() > 0.5;
   var anim;
@@ -103,4 +135,10 @@ function verBlur() {
   setTimeout(function() {
     waifu.classList.remove(anim);
   }, 200);
+}
+
+// BLACKOUT
+function blackout() {
+  var h = document.querySelector("html");
+  h.style.backgroundColor = "#000";
 }

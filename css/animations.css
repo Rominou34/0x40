@@ -23,13 +23,13 @@
 @-webkit-keyframes blur-left {
   0% {
 		left: -25px;
-    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
-    filter: blur(4px);
+    /*-webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    /*filter: blur(4px);*/
 	}
 	100% {
 		left: 0;
-    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
-    filter: blur(0);
+    /*-webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    /*filter: blur(0);*/
 	}
 }
 
@@ -45,26 +45,26 @@
 @keyframes blur-right {
 	0% {
 		left: 25px;
-    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
-    filter: blur(4px);
+    /*-webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    /*filter: blur(4px);*/
 	}
 	100% {
 		left: 0;
-    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
-    filter: blur(0);
+    /*-webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    /*filter: blur(0);*/
 	}
 }
 
 @-webkit-keyframes blur-right {
   0% {
 		left: 25px;
-    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
-    filter: blur(4px);
+    /*-webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    /*filter: blur(4px);*/
 	}
 	100% {
 		left: 0;
-    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
-    filter: blur(0);
+    /*-webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    /*filter: blur(0);*/
 	}
 }
 
@@ -80,26 +80,26 @@
 @keyframes blur-top {
 	0% {
 		top: -25px;
-    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
-    filter: blur(4px);
+    /*-webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    /*filter: blur(4px);*/
 	}
 	100% {
 		top: 0;
-    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
-    filter: blur(0);
+    /*-webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    /*filter: blur(0);*/
 	}
 }
 
 @-webkit-keyframes blur-top {
   0% {
 		top: -25px;
-    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
-    filter: blur(4px);
+    /*-webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    /*filter: blur(4px);*/
 	}
 	100% {
 		top: 0;
-    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
-    filter: blur(0);
+    /*-webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    /*filter: blur(0);*/
 	}
 }
 
@@ -115,26 +115,26 @@
 @keyframes blur-bottom {
 	0% {
 		top: 25px;
-    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
-    filter: blur(4px);
+    /*-webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    /*filter: blur(4px);*/
 	}
 	100% {
 		top: 0;
-    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
-    filter: blur(0);
+    /*-webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    /*filter: blur(0);*/
 	}
 }
 
 @-webkit-keyframes blur-bottom {
   0% {
 		top: 25px;
-    -webkit-filter: blur(4px); /* Chrome, Safari, Opera */
-    filter: blur(4px);
+    /*-webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+    /*filter: blur(4px);*/
 	}
 	100% {
 		top: 0;
-    -webkit-filter: blur(0); /* Chrome, Safari, Opera */
-    filter: blur(0);
+    /*-webkit-filter: blur(0); /* Chrome, Safari, Opera */
+    /*filter: blur(0);*/
 	}
 }
 

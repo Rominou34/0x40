@@ -14,7 +14,7 @@ var music = [
 
 // The beatmaps corresponding to each music
 var beatMap = [
-  {'music_id': 0, 'beat': 'x.o.x.o.x.o.x.o.'},
+  {'music_id': 0, 'beat': 'x.o.+...x.*.:.O.'},
   {'music_id': 1, 'beat': 'x.o.x.o.x.o.x.o.'}
 ];
 
