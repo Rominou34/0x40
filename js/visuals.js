@@ -94,6 +94,9 @@ function changeImg() {
   }
   currentImg = randomImg;
   waifuDiv.style.backgroundImage = "url('"+img[randomImg].src+"')";
+
+  var w = document.querySelector("#waifu-name");
+  w.innerHTML = waifuNames[randomImg];
 }
 
 // CHANGE COLOR
@@ -105,6 +108,9 @@ function changeColor() {
   currentColor = randomColor;
   var h = document.querySelector("html");
   h.style.backgroundColor = colors[randomColor];
+
+  var c = document.querySelector("#color-name");
+  c.innerHTML = colors[randomColor].toUpperCase();
 }
 
 // HORIZONTAL BLUR

@@ -40,6 +40,10 @@ var pictures = [
   {'id': 15, 'url': 'assets/pics/Megumi.png'},
 ];
 
+// The pictures we will use
+var waifuNames = ['Agiri','Ai','Akarin','Akatsuki','Alice','Astraea','Asuha',
+'Asuka','Ayase','CC','Chika','Chiri','Chitanda','Chiyo','Cirno','Megumi'];
+
 // The colors we will use
 var colors = [
   'Aqua',
