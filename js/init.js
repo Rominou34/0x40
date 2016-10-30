@@ -81,6 +81,9 @@ var img = [];
 // This variable respresents the current playing audio
 var currentAudio;
 
+// Contains the id of the current music
+var currentId;
+
 /*
 * This value represents the interval used for the beats
 * Used like this: beat_interval = setInterval(); clearInterval(beat_interval);
@@ -126,10 +129,20 @@ var loadingInterval;
 var musicLoading;
 var imgLoading;
 
+// CONTROLS
+
+var volSlider;
+
 window.addEventListener('DOMContentLoaded', function() {
   waifuDiv = document.getElementById("waifu");
   beatDiv = document.getElementById("beat");
   visualsDiv = document.getElementById("visuals");
 
   loadingInterval = setInterval(musicLoading, 100);
+
+  volSlider = document.querySelector("#vol-slider");
+  volSlider.addEventListener("mousemove", function() {
+    currentAudio.volume = volSlider.value;
+    console.log(volSlider.value);
+  });
 });

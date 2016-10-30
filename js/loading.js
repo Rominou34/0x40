@@ -20,7 +20,7 @@ function musicLoading() {
   updateLoading();
   if(mLoad == music.length && imgLoaded == img.length) {
     console.log("Content loaded");
-    play(1);
+    play(0);
     changeImg();
     changeColor();
     clearInterval(loadingInterval);
