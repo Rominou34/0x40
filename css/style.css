@@ -99,6 +99,7 @@ html, body, p, div, article, h1, h2, h3, h4, h5, h6, form {
   border-top: 2px solid #000;
   padding: 4px;
   justify-content: space-between;
+  z-index: 2;
 }
 
 #section-1, #section-2, #section-3 {
