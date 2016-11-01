@@ -130,8 +130,9 @@ var musicLoading;
 var imgLoading;
 
 // CONTROLS
-
 var volSlider;
+var playButton;
+var isPaused;
 
 window.addEventListener('DOMContentLoaded', function() {
   waifuDiv = document.getElementById("waifu");
@@ -140,9 +141,26 @@ window.addEventListener('DOMContentLoaded', function() {
 
   loadingInterval = setInterval(musicLoading, 100);
 
+  // Adding an event listener to the slider
   volSlider = document.querySelector("#vol-slider");
   volSlider.addEventListener("mousemove", function() {
     currentAudio.volume = volSlider.value;
     console.log(volSlider.value);
   });
+
+  isPaused = false;
+
+  // Adding an event listener to the play / pause button
+  playButton = document.querySelector("#play-button");
+  playButton.addEventListener("click", function() {
+    if(isPaused) {
+      playButton.classList = "fa fa-pause";
+      resume();
+      isPaused = false;
+    } else {
+      playButton.classList = "fa fa-play";
+      pause();
+      isPaused = true;
+    }
+  })
 });
