@@ -14,7 +14,7 @@ var music = [
 
 // The beatmaps corresponding to each music
 var beatMap = [
-  {'music_id': 0, 'beat': 'x.o.x.o.x.o.x.o.'},
+  {'music_id': 0, 'beat': 'x.o.+...x.*.:.O.'},
   {'music_id': 1, 'beat': 'x.o.x.o.x.o.x.o.'}
 ];
 
@@ -39,6 +39,10 @@ var pictures = [
   {'id': 14, 'url': 'assets/pics/Cirno.png'},
   {'id': 15, 'url': 'assets/pics/Megumi.png'},
 ];
+
+// The pictures we will use
+var waifuNames = ['Agiri','Ai','Akarin','Akatsuki','Alice','Astraea','Asuha',
+'Asuka','Ayase','CC','Chika','Chiri','Chitanda','Chiyo','Cirno','Megumi'];
 
 // The colors we will use
 var colors = [
@@ -76,6 +80,9 @@ var img = [];
 
 // This variable respresents the current playing audio
 var currentAudio;
+
+// Contains the id of the current music
+var currentId;
 
 /*
 * This value represents the interval used for the beats
@@ -122,10 +129,38 @@ var loadingInterval;
 var musicLoading;
 var imgLoading;
 
+// CONTROLS
+var volSlider;
+var playButton;
+var isPaused;
+
 window.addEventListener('DOMContentLoaded', function() {
   waifuDiv = document.getElementById("waifu");
   beatDiv = document.getElementById("beat");
   visualsDiv = document.getElementById("visuals");
 
   loadingInterval = setInterval(musicLoading, 100);
+
+  // Adding an event listener to the slider
+  volSlider = document.querySelector("#vol-slider");
+  volSlider.addEventListener("mousemove", function() {
+    currentAudio.volume = volSlider.value;
+    console.log(volSlider.value);
+  });
+
+  isPaused = false;
+
+  // Adding an event listener to the play / pause button
+  playButton = document.querySelector("#play-button");
+  playButton.addEventListener("click", function() {
+    if(isPaused) {
+      playButton.classList = "fa fa-pause";
+      resume();
+      isPaused = false;
+    } else {
+      playButton.classList = "fa fa-play";
+      pause();
+      isPaused = true;
+    }
+  })
 });

@@ -30,20 +30,27 @@ function play(idToPlay) {
       currentAudio.pause();
     }
     currentMusic = idToPlay;
+    currentId = idToPlay;
     currentAudio = audio[idToPlay];
     currentAudio.currentTime = 0;
-    playBeat(idToPlay);
+    playBeat(idToPlay, 0);
     currentAudio.play();
   }
 }
 
 function pause() {
   currentAudio.pause();
+  clearInterval(beat_interval);
 }
 
-function playBeat(musicId) {
+function resume() {
+  currentAudio.play();
+  playBeat(currentId, beat_pos);
+}
+
+function playBeat(musicId, b_pos) {
   clearInterval(beat_interval);
-  beat_pos = 0;
+  beat_pos = b_pos;
   currentBeat = musicId;
   beat_interval = setInterval(function() {
     displayBeat();
