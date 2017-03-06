@@ -5,17 +5,43 @@
 /********** RESOURCES **********/
 
 // The musics we will use
+/*
+*    /!\ DEPRECATED
+*/
 var music = [
   /*{'id': 0, 'url': 'http://madoka.ovh/Ante_up.mp3'},
   {'id': 1, 'url': 'http://azunyan.ovh/fuwa_fuwa_time.mp3'},*/
-  {'id': 0, 'url': 'assets/music/Fukkireta.mp3'},
-  {'id': 1, 'url': 'assets/music/NOMA_BP.mp3'},
+  {'id': 0, 'url': 'assets/music/Fukkireta.mp3', 'name': 'Ron - Fukkireta', 'beat_length': 60},
+  {'id': 1, 'url': 'assets/music/NOMA_BP.mp3', 'name': 'NOMA - Brain Power', 'beat_length': 60},
+  {'id': 2, 'url': 'assets/music/build_TheClockmaker.mp3', 'name': 'The clockmaker', 'beat_length': 60},
 ];
 
-// The beatmaps corresponding to each music
+/*
+* Array containing the info about every build ( url of audio, name, beat_length, beatmap )
+*/
+var build_songs = [
+  {'id': 0, 'url': 'assets/music/build_Finale.mp3', 'name': 'Madeon - Finale', 'beat_length': 162.89, 'beatmap': '.....'},
+  {'id': 1, 'url': 'assets/music/build_Vordhosbn.mp3', 'name': 'Aphex Twin - Vordhosbn', 'beat_length': 88.11, 'beatmap': ':...x..------.......-.-----.+...............x..-.-.--.-.-.-.---..'},
+  {'id': 2, 'url': 'assets/music/build_TheClockmaker.mp3', 'name': 'The clockmaker build', 'beat_length': 53.58, 'beatmap': '+...................................................................................................................................'}
+];
+
+/*
+* Array containing the info about every loop ( url of audio, name, beat_length, beatmap )
+*/
+var loop_songs = [
+  {'id': 0, 'url': 'assets/music/loop_Finale.mp3', 'name': 'Madeon - Finale', 'beat_length': 162.89, 'beatmap': 'x..xo...x...o...x..xo...x...o...x..xo...x...o...x..xo...x...oxoox..xo...x...o...x..xo...x...o...x..xo...x...o...x...o...x...oooo'},
+  {'id': 1, 'url': 'assets/music/loop_Vordhosbn.mp3', 'name': 'Aphex Twin - Vordhosbn', 'beat_length': 88.11, 'beatmap': 'o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-'},
+  {'id': 2, 'url': 'assets/music/loop_TheClockmaker.mp3', 'name': 'The clockmaker loop', 'beat_length': 53.58, 'beatmap': 'o.......-...+...x...-----...-...o..:..:.o....:..x.......o...-...o...........o...x.....x.....x...o...............+...............o.......----o--.x.......-...-...o..:..:.o....:..x.......o.-.-.-.o...........o...x...............o.......o.......x...............:...:...:...:.+.x...-----...-...o..:..:.o....:..x.......o...-...o...........o...x.....x.....x...o...............+...............o...........----x.....-.-...-...o..:..:.o....:..x.......o.-.-.-.o...........o...x...............o.......o.......x.....x.....-...'}
+];
+
+/*
+*    /!\ DEPRECATED
+*/
 var beatMap = [
   {'music_id': 0, 'beat': 'x.o.+...x.*.:.O.'},
-  {'music_id': 1, 'beat': 'x.o.x.o.x.o.x.o.'}
+  {'music_id': 1, 'beat': 'x.o.x.o.x.o.x.o.'},
+  {'music_id': 2, 'beat': '+...................................................................................................................................'},
+  {'music_id': 3, 'beat': 'o.......-...+...x...-----...-...o..:..:.o....:..x.......o...-...o...........o...x.....x.....x...o...............+...............o.......----o--.x.......-...-...o..:..:.o....:..x.......o.-.-.-.o...........o...x...............o.......o.......x...............:...:...:...:.+.x...-----...-...o..:..:.o....:..x.......o...-...o...........o...x.....x.....x...o...............+...............o...........----x.....-.-...-...o..:..:.o....:..x.......o.-.-.-.o...........o...x...............o.......o.......x.....x.....-...'}
 ];
 
 // The pictures we will use
@@ -66,7 +92,14 @@ var colors = [
 * This array contains all the <audio> elements
 * ( each one corresponding to a music )
 */
+
+// /!\ DEPRECATED
 var audio = [];
+
+var audio_build = [];
+var audio_loop = [];
+
+var currentState; // 0 if build, 1 if loop
 
 /*
 * This array contains all the <img> elements
@@ -134,10 +167,17 @@ var volSlider;
 var playButton;
 var isPaused;
 
+// Displaying the menu to change the music
+var playlistPopup;
+var curSongDiv;
+
 window.addEventListener('DOMContentLoaded', function() {
   waifuDiv = document.getElementById("waifu");
   beatDiv = document.getElementById("beat");
   visualsDiv = document.getElementById("visuals");
+
+  playlistPopup = document.querySelector("#playlist-popup");
+  curSongDiv = document.querySelector("#current-song");
 
   loadingInterval = setInterval(musicLoading, 100);
 
@@ -146,6 +186,11 @@ window.addEventListener('DOMContentLoaded', function() {
   volSlider.addEventListener("mousemove", function() {
     currentAudio.volume = volSlider.value;
     console.log(volSlider.value);
+  });
+
+  // Adding an event listener on the div of the current song to toggle the popup
+  curSongDiv.addEventListener("click", function() {
+    playlistPopup.classList.toggle("active");
   });
 
   isPaused = false;
