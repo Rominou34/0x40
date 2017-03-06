@@ -7,20 +7,38 @@ function updateLoading() {
   loadingDiv.innerHTML = "0x" + hexLoading.toString(16);
 }
 
+function displayMenu() {
+  var menu = document.querySelector("#menu");
+  menu.style.display = "flex";
+}
+
+function displayBeatBar() {
+  var beatBar = document.querySelector("#beat");
+  beatBar.style.display = "flex";
+  beatBar.style.display = "flex";
+}
+
 function musicLoading() {
   var mLoad = 0;
   var pLoad = 0;
-  for(var i in audio) {
-    if(audio[i].networkState == 1) {
+  for(var l in audio_loop) {
+    if(audio_loop[l].networkState == 1) {
+      mLoad++;
+    }
+  }
+  for(var b in audio_build) {
+    if(audio_build[b].networkState == 1) {
       mLoad++;
     }
   }
   musicLoaded = mLoad;
   console.log("Loading: " + mLoad + "/" + music.length);
   updateLoading();
-  if(mLoad == music.length && imgLoaded == img.length) {
+  if(mLoad == (build_songs.length + loop_songs.length) && imgLoaded == img.length) {
     console.log("Content loaded");
-    play(0);
+    displayMenu();
+    displayBeatBar();
+    build(0);
     changeImg();
     changeColor();
     clearInterval(loadingInterval);

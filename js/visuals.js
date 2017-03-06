@@ -12,28 +12,62 @@ for(var p in pictures) {
   img.push(addImg);
 }
 
+// function displayBeat() {
+//   var beatLeft = beatDiv.querySelector("span:first-child");
+//   var beatRight = beatDiv.querySelector("span:last-child");
+//   var beatCenter = beatDiv.querySelector(".big-beat");
+//
+//   // Left
+//   var strLeft = "";
+//   var beat_max = beatMap[currentBeat].beat.length;
+//   for(var i=0; i < 40; i++) {
+//     strLeft = beatMap[currentBeat].beat.charAt((i+beat_pos)%beat_max) + strLeft;
+//   }
+//   beatLeft.innerHTML = strLeft;
+//
+//   // Right
+//   var strRight = "";
+//   for(var i=0; i < 40; i++) {
+//     strRight += beatMap[currentBeat].beat.charAt((i+beat_pos)%beat_max);
+//   }
+//   beatRight.innerHTML = strRight;
+//
+//   if(beatMap[currentBeat].beat.charAt(beat_pos) != '.') {
+//     beatCenter.innerHTML = beatMap[currentBeat].beat.charAt(beat_pos);
+//   } else {
+//     beatCenter.innerHTML = ' ';
+//   }
+//
+// }
+
 function displayBeat() {
   var beatLeft = beatDiv.querySelector("span:first-child");
   var beatRight = beatDiv.querySelector("span:last-child");
   var beatCenter = beatDiv.querySelector(".big-beat");
 
+  var beatText;
+  if(currentState == 0) {
+    beatText = build_songs[currentBeat].beatmap;
+  } else {
+    beatText = loop_songs[currentBeat].beatmap;
+  }
   // Left
   var strLeft = "";
-  var beat_max = beatMap[currentBeat].beat.length;
-  for(var i=0; i < 20; i++) {
-    strLeft = beatMap[currentBeat].beat.charAt((i+beat_pos)%beat_max) + strLeft;
+  var beat_max = beatText.length;
+  for(var i=0; i < 40; i++) {
+    strLeft = beatText.charAt((i+beat_pos)%beat_max) + strLeft;
   }
   beatLeft.innerHTML = strLeft;
 
   // Right
   var strRight = "";
-  for(var i=0; i < 20; i++) {
-    strRight += beatMap[currentBeat].beat.charAt((i+beat_pos)%beat_max);
+  for(var i=0; i < 40; i++) {
+    strRight += beatText.charAt((i+beat_pos)%beat_max);
   }
   beatRight.innerHTML = strRight;
 
-  if(beatMap[currentBeat].beat.charAt(beat_pos) != '.') {
-    beatCenter.innerHTML = beatMap[currentBeat].beat.charAt(beat_pos);
+  if(beatText.charAt(beat_pos) != '.') {
+    beatCenter.innerHTML = beatText.charAt(beat_pos);
   } else {
     beatCenter.innerHTML = ' ';
   }
@@ -54,6 +88,12 @@ function playBeatAnimation(beat_char) {
     changeImg();
     changeColor();
     horBlur();
+  }
+
+  // NO BLUR
+  if(beat_char == '-') {
+    changeImg();
+    changeColor();
   }
 
   // COLOR ONLY
