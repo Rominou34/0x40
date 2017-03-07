@@ -47,9 +47,9 @@ function displayBeat() {
 
   var beatText;
   if(currentState == 0) {
-    beatText = build_songs[currentBeat].beatmap;
+    beatText = songs[currentId].build.beatmap;
   } else {
-    beatText = loop_songs[currentBeat].beatmap;
+    beatText = songs[currentId].loop.beatmap;
   }
   // Left
   var strLeft = "";
@@ -136,7 +136,7 @@ function changeImg() {
   waifuDiv.style.backgroundImage = "url('"+img[randomImg].src+"')";
 
   var w = document.querySelector("#waifu-name");
-  w.innerHTML = waifuNames[randomImg];
+  w.innerHTML = pictures[randomImg].name;
 }
 
 // CHANGE COLOR

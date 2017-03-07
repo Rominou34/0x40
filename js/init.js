@@ -16,22 +16,55 @@ var music = [
   {'id': 2, 'url': 'assets/music/build_TheClockmaker.mp3', 'name': 'The clockmaker', 'beat_length': 60},
 ];
 
-/*
-* Array containing the info about every build ( url of audio, name, beat_length, beatmap )
-*/
-var build_songs = [
-  {'id': 0, 'url': 'assets/music/build_Finale.mp3', 'name': 'Madeon - Finale', 'beat_length': 162.89, 'beatmap': '.....'},
-  {'id': 1, 'url': 'assets/music/build_Vordhosbn.mp3', 'name': 'Aphex Twin - Vordhosbn', 'beat_length': 88.11, 'beatmap': ':...x..------.......-.-----.+...............x..-.-.--.-.-.-.---..'},
-  {'id': 2, 'url': 'assets/music/build_TheClockmaker.mp3', 'name': 'The clockmaker build', 'beat_length': 53.58, 'beatmap': '+...................................................................................................................................'}
-];
 
 /*
-* Array containing the info about every loop ( url of audio, name, beat_length, beatmap )
+* Array containing the info about every song ( url of audio, name, beat_length, beatmap )
 */
-var loop_songs = [
-  {'id': 0, 'url': 'assets/music/loop_Finale.mp3', 'name': 'Madeon - Finale', 'beat_length': 162.89, 'beatmap': 'x..xo...x...o...x..xo...x...o...x..xo...x...o...x..xo...x...oxoox..xo...x...o...x..xo...x...o...x..xo...x...o...x...o...x...oooo'},
-  {'id': 1, 'url': 'assets/music/loop_Vordhosbn.mp3', 'name': 'Aphex Twin - Vordhosbn', 'beat_length': 88.11, 'beatmap': 'o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-'},
-  {'id': 2, 'url': 'assets/music/loop_TheClockmaker.mp3', 'name': 'The clockmaker loop', 'beat_length': 53.58, 'beatmap': 'o.......-...+...x...-----...-...o..:..:.o....:..x.......o...-...o...........o...x.....x.....x...o...............+...............o.......----o--.x.......-...-...o..:..:.o....:..x.......o.-.-.-.o...........o...x...............o.......o.......x...............:...:...:...:.+.x...-----...-...o..:..:.o....:..x.......o...-...o...........o...x.....x.....x...o...............+...............o...........----x.....-.-...-...o..:..:.o....:..x.......o.-.-.-.o...........o...x...............o.......o.......x.....x.....-...'}
+var songs = [
+  {'id': 0, 'name': 'Madeon - Finale', 'beat_length': 162.89,
+    'build': {'url': 'assets/music/build_Finale.mp3', 'beatmap': '.....'},
+    'loop': {'url': 'assets/music/loop_Finale.mp3', 'beatmap': 'x..xo...x...o...x..xo...x...o...x..xo...x...o...x..xo...x...oxoox..xo...x...o...x..xo...x...o...x..xo...x...o...x...o...x...oooo'}
+  },
+  {'id': 1, 'name': 'Vexare - The Clockmaker', 'beat_length': 53.58,
+    'build': {'url': 'assets/music/build_TheClockmaker.mp3', 'beatmap': '+...................................................................................................................................'},
+    'loop': {'url': 'assets/music/loop_TheClockmaker.mp3', 'beatmap': 'o.......-...+...x...-----...-...o..:..:.o....:..x.......o...-...o...........o...x.....x.....x...o...............+...............o.......----o--.x.......-...-...o..:..:.o....:..x.......o.-.-.-.o...........o...x...............o.......o.......x...............:...:...:...:.+.x...-----...-...o..:..:.o....:..x.......o...-...o...........o...x.....x.....x...o...............+...............o...........----x.....-.-...-...o..:..:.o....:..x.......o.-.-.-.o...........o...x...............o.......o.......x.....x.....-...'}
+  },
+  {'id': 2, 'name': 'Imagine Dragons - Radioactive', 'beat_length': 219.66,
+    'build': null,
+    'loop': {'url': 'assets/music/loop_Radioactive.mp3', 'beatmap': 'o...x.o.o...x.o.o...x...o...x.o.o...x.o.o...x.......x.......x...'}
+  },
+  {'id': 3, 'name': 'Row Row Fight the Powah (RAGEFOXX & SLUTTT MIX)', 'beat_length': 119.01,
+    'build': null,
+    'loop': {'url': 'assets/music/loop_RowRow.mp3', 'beatmap': 'o...x...o...x...o...x...o...x...o...x...o...x...o...x...o...xxx.x...x...o...x...o...x...o...x...o...x...o...x...o...o...o...o...'}
+  },
+  {'id': 4, 'name': 'Outlaw Star OST - Desire', 'beat_length': 138.81,
+    'build': {'url': 'assets/music/build_Desire.mp3', 'beatmap': 'x.....x.x.x.xxx.'},
+    'loop': {'url': 'assets/music/loop_Desire.mp3', 'beatmap': 'o...x...o.o.x.x...o.x...o.o.x...o...x...o.o.x.x...o.x...oo..x.x.o...x...o.o.x.x...o.x...oo..x.x.o...x...o.o.x.x...o.x...x...x.xx'}
+  },
+  {'id': 5, 'name': 'The Bloody Beetroots - Out of Sight', 'beat_length': 108.61,
+    'build': null,
+    'loop': {'url': 'assets/music/loop_OutOfSight.mp3', 'beatmap': 'o.....oox.......o.o....ox.......o.....oox...o...o.o....ox.......o......ox.......o.o....ox.......o.....oox...o...o.o.....+.......'}
+  },
+  {'id': 6, 'name': 'Buckethead - Smile Without a Face', 'beat_length': 106.97,
+    'build': {'url': 'assets/music/build_SmileWithoutAFace.mp3', 'beatmap': '..o.....-:x.......o.....-:x.......o.....-:x.......o.....-:x.......o.....-:x.......o.....-:x.x......'},
+    'loop': {'url': 'assets/music/loop_SmileWithoutAFace.mp3', 'beatmap': 'o......ox.....o.o.......x.......o......ox.....o.o.....o.x.ooooooo......ox.....o.o.......x.......o......ox.....o.o.....o.x.oooooo'}
+  },
+  {'id': 7, 'name': 'Crystal Castles - Courtship Dating', 'beat_length': 249.87,
+    'build': null,
+    'loop': {'url': 'assets/music/loop_CourtshipDate.mp3', 'beatmap': 'o...x.....o.x...o...x.....o.x...o...x.....o.x...o...x.....o.+...'}
+  },
+  {'id': 8, 'name': 'Aphex Twin - Vordhosbn', 'beat_length': 88.11,
+    'build': {'url': 'assets/music/build_Vordhosbn.mp3', 'beatmap': ':...x..------.......-.-----.+...............x..-.-.--.-.-.-.---..'},
+    'loop': {'url': 'assets/music/loop_Vordhosbn.mp3', 'beatmap': 'o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-o...x..---o.x...-.o.x------.x..-o.-.x.o..-.ox-.-----x-o-------o-'}
+  },
+  {'id': 9, 'name': 'Culprate - Orange Sunrise, Sunset', 'beat_length': 129.22,
+    'build': null,
+    'loop': {'url': 'assets/music/loop_Orange.mp3', 'beatmap': 'o.o.x..o.x.x....o..ox......x....o...x....o.x....o...x....o.xx...o.o.x..o.x.x....o..ox......x....o...x....o.x...xo...x....o.xx...'}
+  },
+  {'id': 10, 'name': 'Hyper - Spoiler', 'beat_length': 83.38,
+    'build': null,
+    'loop': {'url': 'assets/music/loop_Spoiler.mp3', 'beatmap': 'o+......x+......o+......x+......o+......x+......o+......x+......o+......x+......o+......x+......o+......x+......o+..............o+......x+......o+......x+......o+......x+......o+......x+......o+......x+......o+......x+......o---------------o+......x.......'}
+  }
 ];
 
 /*
@@ -48,27 +81,41 @@ var beatMap = [
 var pictures = [
   /*{'id': 0, 'url': 'http://rominou34.github.io/Tabinou/img/plane1.jpg'},
   {'id': 1, 'url': 'http://rominou34.github.io/img/profile_pic.jpg'}*/
-  {'id': 0, 'url': 'assets/pics/Agiri.png'},
-  {'id': 1, 'url': 'assets/pics/Ai.png'},
-  {'id': 2, 'url': 'assets/pics/Akarin.png'},
-  {'id': 3, 'url': 'assets/pics/Akatsuki.png'},
-  {'id': 4, 'url': 'assets/pics/Alice.png'},
-  {'id': 5, 'url': 'assets/pics/Astraea.png'},
-  {'id': 6, 'url': 'assets/pics/Asuha.png'},
-  {'id': 7, 'url': 'assets/pics/Asuka.png'},
-  {'id': 8, 'url': 'assets/pics/Ayase.png'},
-  {'id': 9, 'url': 'assets/pics/CC.png'},
-  {'id': 10, 'url': 'assets/pics/Chika.png'},
-  {'id': 11, 'url': 'assets/pics/Chiri.png'},
-  {'id': 12, 'url': 'assets/pics/Chitanda.png'},
-  {'id': 13, 'url': 'assets/pics/Chiyo.png'},
-  {'id': 14, 'url': 'assets/pics/Cirno.png'},
-  {'id': 15, 'url': 'assets/pics/Megumi.png'},
+  {'id': 0, 'url': 'assets/pics/Agiri.png', 'name': 'Agiri'},
+  {'id': 1, 'url': 'assets/pics/Ai.png', 'name': 'Ai'},
+  {'id': 2, 'url': 'assets/pics/Akarin.png', 'name': 'Akarin'},
+  {'id': 3, 'url': 'assets/pics/Akatsuki.png', 'name': 'Akatsuki'},
+  {'id': 4, 'url': 'assets/pics/Alice.png', 'name': 'Alice'},
+  {'id': 5, 'url': 'assets/pics/Astraea.png', 'name': 'Astraea'},
+  {'id': 6, 'url': 'assets/pics/Asuha.png', 'name': 'Asuha'},
+  {'id': 7, 'url': 'assets/pics/Asuka.png', 'name': 'Asuka'},
+  {'id': 8, 'url': 'assets/pics/Ayase.png', 'name': 'Ayase'},
+  {'id': 9, 'url': 'assets/pics/CC.png', 'name': 'CC'},
+  {'id': 10, 'url': 'assets/pics/Chika.png', 'name': 'Chika'},
+  {'id': 11, 'url': 'assets/pics/Chiri.png', 'name': 'Chiri'},
+  {'id': 12, 'url': 'assets/pics/Chitanda.png', 'name': 'Chitanda'},
+  {'id': 13, 'url': 'assets/pics/Chiyo.png', 'name': 'Chiyo'},
+  {'id': 14, 'url': 'assets/pics/Cirno.png', 'name': 'Cirno'},
+  {'id': 15, 'url': 'assets/pics/Crona.png', 'name': 'Crona'},
+  {'id': 16, 'url': 'assets/pics/Demon_Sisters.png', 'name': 'Demon Sisters'},
+  {'id': 17, 'url': 'assets/pics/Emi.png', 'name': 'Emi'},
+  {'id': 18, 'url': 'assets/pics/Etna.png', 'name': 'Etna'},
+  {'id': 19, 'url': 'assets/pics/Eureka.png', 'name': 'Eureka'},
+  {'id': 20, 'url': 'assets/pics/Excel.png', 'name': 'Excel'},
+  {'id': 21, 'url': 'assets/pics/Faye.png', 'name': 'Faye'},
+  {'id': 22, 'url': 'assets/pics/Felli.png', 'name': 'Felli'},
+  {'id': 23, 'url': 'assets/pics/Flandre.png', 'name': 'Flandre'},
+  {'id': 24, 'url': 'assets/pics/Fran.png', 'name': 'Fran'},
+  {'id': 25, 'url': 'assets/pics/Fuu.png', 'name': 'Fuu'},
+  {'id': 26, 'url': 'assets/pics/Galil.png', 'name': 'Galil'},
+  {'id': 27, 'url': 'assets/pics/Hajime_Ichinose.png', 'name': 'Hajime Ichinose'},
+  {'id': 28, 'url': 'assets/pics/Hakase.png', 'name': 'Hakase'},
+  {'id': 29, 'url': 'assets/pics/Hanako.png', 'name': 'Hanako'},
+  {'id': 30, 'url': 'assets/pics/Haruhi.png', 'name': 'Haruhi'},
+  {'id': 31, 'url': 'assets/pics/Haruhi_Fujioka.png', 'name': 'Haruhi Fujioka'},
+  {'id': 32, 'url': 'assets/pics/Megumi.png', 'name': 'Megumi'},
 ];
 
-// The pictures we will use
-var waifuNames = ['Agiri','Ai','Akarin','Akatsuki','Alice','Astraea','Asuha',
-'Asuka','Ayase','CC','Chika','Chiri','Chitanda','Chiyo','Cirno','Megumi'];
 
 // The colors we will use
 var colors = [

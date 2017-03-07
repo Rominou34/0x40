@@ -1,29 +1,31 @@
-
-// for(var m in music) {
-//   var addAudio = new Audio(music[m].url);
+// for(var b in build_songs) {
+//   var addAudio = new Audio(build_songs[b].url);
 //   addAudio.autoplay=false;
 //   /************************/
 //   //addAudio.volume = 0.1;
 //   /************************/
-//   audio.push(addAudio);
+//   audio_build.push(addAudio);
+// }
+//
+// for(var l in loop_songs) {
+//   var addAudio = new Audio(loop_songs[l].url);
+//   addAudio.autoplay=false;
+//   /************************/
+//   //addAudio.volume = 0.1;
+//   /************************/
+//   audio_loop.push(addAudio);
 // }
 
-for(var b in build_songs) {
-  var addAudio = new Audio(build_songs[b].url);
-  addAudio.autoplay=false;
-  /************************/
-  //addAudio.volume = 0.1;
-  /************************/
-  audio_build.push(addAudio);
-}
-
-for(var l in loop_songs) {
-  var addAudio = new Audio(loop_songs[l].url);
-  addAudio.autoplay=false;
-  /************************/
-  //addAudio.volume = 0.1;
-  /************************/
-  audio_loop.push(addAudio);
+for(var a in songs) {
+  console.log(songs[a]);
+  if(songs[a].build != null) {
+    var addAudio = {'song_id': songs[a].id, 'audio': new Audio(songs[a].build.url)};
+    addAudio.autoplay=false;
+    audio_build.push(addAudio);
+  }
+  var addLoop = {'song_id': songs[a].id, 'audio': new Audio(songs[a].loop.url)};
+  addLoop.autoplay=false;
+  audio_loop.push(addLoop);
 }
 
 /*function audioLoading() {
@@ -49,13 +51,9 @@ function play(idToPlay, type) {
   currentMusic = idToPlay;
   currentId = idToPlay;
   // Build
-  if(type == 0) {
-    currentAudio = audio_build[idToPlay];
-    var music_beat = build_songs[idToPlay].beat_length;
-  } else {
-    currentAudio = audio_loop[idToPlay];
-    var music_beat = loop_songs[idToPlay].beat_length;
-  }
+
+  currentAudio = getAudio(idToPlay, type);
+  var music_beat = songs[idToPlay].beat_length;
   //currentAudio = audio[idToPlay];
 
   currentAudio.currentTime = 0;
@@ -90,19 +88,40 @@ function resume() {
   playBeat(currentId, beat_pos);
 }
 
+// Returns the audio element given the id of the song and the type ( build or loop )
+function getAudio(song_id, type) {
+  if(type == 0) {
+    var audio_list = audio_build;
+  } else {
+    var audio_list = audio_loop;
+  }
+  for(var a in audio_list) {
+    if(audio_list[a].song_id == song_id) {
+      return audio_list[a].audio;
+    }
+  }
+}
+
 function changeMusic(music_id) {
-  build(music_id);
+  // If the song has a build we play the build first
+  if(songs[music_id].build != null) {
+    build(music_id);
+  } else {
+    // Else we directly loop
+    loop(music_id);
+  }
+
   playlistPopup.classList.remove("active");
-  curSongDiv.innerHTML = music[music_id].name;
+  curSongDiv.innerHTML = songs[music_id].name;
 }
 
 // Returns the beat char at the current position
 function getBeatChar(pos) {
   var beatMapTemp;
   if(currentState == 0) {
-    beatMapTemp = build_songs[currentId].beatmap;
+    beatMapTemp = songs[currentId].build.beatmap;
   } else {
-    beatMapTemp = loop_songs[currentId].beatmap;
+    beatMapTemp = songs[currentId].loop.beatmap;
   }
   return beatMapTemp.charAt(pos);
 }
@@ -110,9 +129,9 @@ function getBeatChar(pos) {
 // Returns the length of the current beatmap being played
 function getBeatmapLength() {
   if(currentState == 0) {
-    return build_songs[currentId].beatmap.length;
+    return songs[currentId].build.beatmap.length;
   } else {
-    return loop_songs[currentId].beatmap.length;
+    return songs[currentId].loop.beatmap.length;
   }
 }
 
