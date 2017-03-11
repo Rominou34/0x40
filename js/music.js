@@ -72,7 +72,6 @@ function build(music_id) {
 function loop(idToPlay) {
   currentState = 1;
   play(idToPlay, 1);
-  console.log("Looping");
   currentAudio.onended = function() {
      play(idToPlay, 1);
   };
@@ -85,7 +84,7 @@ function pause() {
 
 function resume() {
   currentAudio.play();
-  playBeat(currentId, beat_pos);
+  playBeat(currentId, beat_pos, songs[currentId].beat_length, currentState);
 }
 
 // Returns the audio element given the id of the song and the type ( build or loop )

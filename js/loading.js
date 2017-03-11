@@ -1,9 +1,10 @@
 loadingDiv = document.querySelector("#loading");
 
 function updateLoading() {
-  var loadingMax = img.length + songs.length;
+  var loadingMax = img.length + (audio_build.length + audio_loop.length);
   var loadingCurrent = imgLoaded + musicLoaded;
   var hexLoading = Math.round((loadingCurrent/loadingMax)*64);
+  console.log("0x" + hexLoading.toString(16));
   loadingDiv.innerHTML = "0x" + hexLoading.toString(16);
 }
 
@@ -32,7 +33,7 @@ function musicLoading() {
     }
   }
   musicLoaded = mLoad;
-  console.log("Loading: " + mLoad + "/" + music.length);
+  console.log("Loading: " + mLoad + "/" + (audio_build.length + audio_loop.length));
   updateLoading();
   if(mLoad == (audio_build.length + audio_loop.length) && imgLoaded == img.length) {
     console.log("Content loaded");
