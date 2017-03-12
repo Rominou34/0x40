@@ -1,6 +1,6 @@
 for(var p in pictures) {
   var addImg = new Image();
-  addImg.src = pictures[p].url;
+  addImg.src = "assets/pics/" + pictures[p].name + ".png";
   addImg.onload = function() {
     imgLoaded++;
     console.log("Image loaded (" + imgLoaded + "/" + img.length + ")");
@@ -136,7 +136,11 @@ function changeImg() {
   waifuDiv.style.backgroundImage = "url('"+img[randomImg].src+"')";
 
   var w = document.querySelector("#waifu-name");
-  w.innerHTML = pictures[randomImg].name;
+  w.innerHTML = cleanName(pictures[randomImg].name);
+}
+
+function cleanName(name) {
+  return name.replace(/_/g , " ");
 }
 
 // CHANGE COLOR
